@@ -24,6 +24,6 @@ jobs:
       - name: Publish
         shell: powershell
         run: |
-          choco push faforever.0.0.0-rc21.nupkg --api-key "$env:API_KEY" --source https://push.chocolatey.org/
+          choco push faforever.0.0.0-rc22.nupkg --api-key "$env:API_KEY" --source https://push.chocolatey.org/
         env:
           API_KEY: ${{ secrets.API_KEY }}
