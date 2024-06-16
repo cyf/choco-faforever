@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        shell: powershell
+        run: |
+          choco pack
+
+      - name: ls
+        shell: powershell
+        run: |
+          ls *.nupkg
+
+      - name: Publish
+        shell: powershell
+        run: |
+          choco push faforever.0.0.0-rc21.nupkg --api-key "$env:API_KEY" --source https://push.chocolatey.org/
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
