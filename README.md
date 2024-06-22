@@ -1,5 +1,8 @@
 ﻿# choco-faforever
 
+[![Publish](https://github.com/cyf/choco-faforever/actions/workflows/publish.yml/badge.svg)](https://github.com/cyf/choco-faforever/actions/workflows/publish.yml)
+[![Chocolatey Version](https://img.shields.io/chocolatey/v/faforever)](https://community.chocolatey.org/packages/faforever)
+
 [Quick start guide](https://docs.chocolatey.org/en-us/create/create-packages-quick-start/#quick-start-guide)
 
 ```powershell

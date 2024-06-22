@@ -12,18 +12,35 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build
-        shell: powershell
-        run: |
-          choco pack
+        shell: pwsh
+        run: choco pack
 
       - name: ls
-        shell: powershell
-        run: |
-          ls *.nupkg
+        shell: pwsh
+        run: ls *.nupkg
 
       - name: Publish
-        shell: powershell
+        shell: pwsh
         run: |
-          choco push faforever.0.0.0-rc22.nupkg --api-key "$env:API_KEY" --source https://push.chocolatey.org/
+          # Read the contents of a .nuspec file
+          $xmlContent = Get-Content -Path faforever.nuspec -Raw
+
+          # Parsing XML content
+          [xml]$xml = $xmlContent
+
+          # Extract the version number
+          $version = $xml.package.metadata.version
+
+          # Output version number
+          Write-Output "Package version: $version"
+
+          $packageFile = "faforever.$version.nupkg"
+
+          if (test-path -Path "$packageFile") {
+            choco push "$packageFile" --api-key "$env:API_KEY" --source https://push.chocolatey.org/
+            Write-Output "The file($packageFile) was removed successfully."
+          } else {
+            Write-Output "The specified file($packageFile) was not found."
+          }
         env:
           API_KEY: ${{ secrets.API_KEY }}
