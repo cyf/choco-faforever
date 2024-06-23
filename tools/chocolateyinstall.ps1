@@ -1,8 +1,8 @@
 
 $ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/cyf/faforever/releases/download/v0.0.1%2B24/FaForever_0.0.1.24_x86_en-US.msi'
-$url64      = 'https://github.com/cyf/faforever/releases/download/v0.0.1%2B24/FaForever_0.0.1.24_x64_en-US.msi'
+$url        = 'https://github.com/cyf/faforever/releases/download/v0.0.1%2B25/FaForever_0.0.1.25_x86_en-US.msi'
+$url64      = 'https://github.com/cyf/faforever/releases/download/v0.0.1%2B25/FaForever_0.0.1.25_x64_en-US.msi'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -13,9 +13,9 @@ $packageArgs = @{
 
   softwareName  = 'faforever*'
 
-  checksum      = '4CE65C737922E558E70569BB5C241BE0F3FDF0CB222D2C065FF2973B6D5F6E74'
+  checksum      = 'C967D6293C67B7A8C1B72FDB7AA5A92B192A1CC164A29B0CD54612592CCA3696'
   checksumType  = 'sha256'
-  checksum64    = '10EB6AC02D2EF416B3056253ED0CE2146E95E70EF69D9E76C690EEC07188FAB2'
+  checksum64    = '5B7504A8AAD2FB65EFEA874BEC618AD21AD799DDF58517C952A7E48C7F850208'
   checksumType64= 'sha256'
 
   silentArgs    = "/qn /norestart /l*v `"$($env:TEMP)\$($packageName).$($env:chocolateyPackageVersion).MsiInstall.log`""
