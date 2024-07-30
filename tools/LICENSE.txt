@@ -1,9 +1,4 @@
-﻿
-From: https://raw.githubusercontent.com/cyf/faforever/main/LICENSE
-
-LICENSE
-
-MIT License
+﻿MIT License
 
 Copyright (c) 2023-PRESENT cyf
 
